@@ -1,0 +1,31 @@
+
+.city-list-container {
+    padding: 10px 15px 20px 15px;
+    background-color: #fff;
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .city-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    
+        li {
+            width: 33.3%;
+            line-height: 2;
+            font-size: 16px;
+            text-align: center;
+
+            span {
+                display: inline-block;
+                width: 90%;
+                margin-top: 15px;
+                border: 1px solid #ccc;
+            }
+        }
+    }
+}
+
+
