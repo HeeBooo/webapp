@@ -1,0 +1,21 @@
+@import '../../static/scss/font.css';
+
+.common-header {
+    position: relative;
+    padding: 15px 10px;
+    background-color: rgb(233, 32, 61);
+    color: #fff;
+
+    h1 {
+        font-size: 16px;
+        text-align: center;
+        line-height: 1;
+    }
+
+    .back-icon {
+        position: absolute;
+        left: 10px;
+        width: 16px;
+        height: 16px;
+    }
+}
