@@ -4,6 +4,13 @@ const koaBody = require('koa-body')();
 
 const app = new Koa();
 
+// 首页 —— 轮播图数据
+const homeCateGory = require('./home/homeCategory');
+
+router.get('/api/homeCategory', (ctx, next) => {
+    ctx.body = homeCateGory;
+});
+
 // 首页 —— 广告（超值特惠） 
 const homeAdData = require('./home/ad');
 

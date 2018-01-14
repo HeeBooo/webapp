@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react';
-
-import { getHotCityListData } from '~fetch/home/home';
-
-
+import { getHotCityListData } from '~fetch/home/home';  // 获取热门城市数据
 import './style.scss';
 
 class CityList extends PureComponent {
@@ -19,17 +16,22 @@ class CityList extends PureComponent {
         return (
             <div className="city-list-container">
                 <h3>热门城市</h3>
-                <ul className="city-list">
-                    {
-                        cityList.map((item, i) => {
-                            return (
-                                <li key={i}>
-                                    <span onClick={() => { this.handleClick(item.cityName)}}>{item.cityName}</span>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
+                {
+                    this.state.data.length
+                        ?
+                        <ul className="city-list">
+                            {
+                                cityList.map((item, i) => {
+                                    return (
+                                        <li key={i}>
+                                            <span onClick={() => { this.handleClick(item.cityName) }}>{item.cityName}</span>
+                                        </li>
+                                    );
+                                })
+                            }
+                        </ul>
+                        : <div>loading...</div>
+                }
             </div>
         );
     };
@@ -46,7 +48,7 @@ class CityList extends PureComponent {
             this.setState({
                 data: data
             });
-        })
+        });
     };
 
     handleClick = newCity => {

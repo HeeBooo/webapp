@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-
 import './style.scss';
 
 class LoadMore extends PureComponent {
@@ -12,7 +11,7 @@ class LoadMore extends PureComponent {
                     : <span onClick={this.loadMoreHandle}>加载更多</span>
                 }
             </div>
-        )
+        );
     };
 
     componentDidMount() {
@@ -50,8 +49,6 @@ class LoadMore extends PureComponent {
         // 执行传递过来的loadMoreData函数
         this.props.loadMoreFn();
     };
-}
-
-
+};
 
 export default LoadMore;

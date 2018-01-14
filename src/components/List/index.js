@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-
 import './style.scss';
 
 // 无状态组件可以直接使用函数形式创建
@@ -16,7 +15,7 @@ const List = props => {
                 })
             }
         </div>
-    )
-}
+    );
+};
 
 export default List;

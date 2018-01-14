@@ -9,7 +9,7 @@ class Ad extends PureComponent {
         this.state = {
             data: []
         }
-    }
+    };
 
     render() {
         return (
@@ -21,7 +21,7 @@ class Ad extends PureComponent {
                 }
             </div>
         )
-    }
+    };
 
     componentDidMount() {
         const result = getAdData();
@@ -29,16 +29,15 @@ class Ad extends PureComponent {
         result.then(res => {
             return res.json();
         }).then(json => {
-            // console.log(json);
             const data = json;
+
             if (data.length) {
                 this.setState({
                     data: data
                 })
-            }
-        })
-    }
-
-}
+            };
+        });
+    };
+};
 
 export default Ad;

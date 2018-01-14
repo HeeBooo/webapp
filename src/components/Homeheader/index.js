@@ -21,7 +21,7 @@ const Homeheader = props => {
                 <i className="icon-user"></i>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Homeheader;

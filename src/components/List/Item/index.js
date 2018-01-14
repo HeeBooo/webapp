@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { getImage } from '~static/js/common';
-
 import './style.scss';
 
 // 无状态组件可以直接使用函数形式创建
@@ -26,6 +24,6 @@ const Item = props => {
             </div>
         </div>
     );
-}
+};
 
 export default Item;

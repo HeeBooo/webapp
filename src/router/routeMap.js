@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import Home from '~containers/Home';
 import City from '~containers/City';
 import User from '~containers/User';
@@ -16,13 +15,13 @@ class RouteMap extends Component {
                     <Route path='/' exact component={Home} />
                     <Route path='/city' component={City} />
                     <Route path='/user' component={User} />
-                    <Route path='/search/:type(/:keyword)' component={Search} />
+                    <Route path='/search/:category(/:keyword)' component={Search} />
                     <Route path='/detail/:id' component={Detail} />
                     <Route path='*' component={NotFound} />
                 </Switch>
             </Router>
-        )
-    }
-}
+        );
+    };
+};
 
 export default RouteMap;

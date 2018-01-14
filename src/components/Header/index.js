@@ -1,23 +1,21 @@
-import React, { PureComponent  } from 'react';
-
+import React from 'react';
 import './style.scss';
 
-class Header extends PureComponent {
-    render() {
-        return (
-            <div className="common-header">
-                <span className="back-icon" onClick={this.clickHandle}>
-                    <i className="icon-chevron-left"></i>
-                </span>
-                <h1>{this.props.title}</h1>
-            </div>
-        )
-    };
+// 无状态组件可以直接使用函数形式创建
+const Header = props => {
+    return (
+        <div className="common-header">
+            <span className="back-icon" onClick={clickHandle}>
+                <i className="icon-chevron-left"></i>
+            </span>
+            <h1>{props.title}</h1>
+        </div>
+    );
+};
 
-    clickHandle = () => {
-        // 返回上一页
-        window.history.back();
-    }
+const clickHandle = () => {
+    // 返回上一页
+    window.history.back();
 };
 
 export default Header;

@@ -23,8 +23,6 @@ class City extends PureComponent {
 
     changeCity = newCity => {
         // 将新选择的城市设置为当前城市
-
-        console.log(newCity)
         if (newCity == null) {
             return;
         };
