@@ -10,7 +10,7 @@ class Home extends PureComponent {
     render() {
         return (
             <div>
-                <Homeheader cityName={this.props.userinfo.cityName} />
+                <Homeheader cityName={this.props.userinfo.cityName} history={this.props.history} />
                 <Category />
                 <Ad />
                 <List cityName={this.props.userinfo.cityName} />

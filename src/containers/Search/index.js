@@ -1,11 +1,16 @@
 import React, { PureComponent  } from 'react';
 
+import SearchHead from '~components/SearchHeader';
+
 class Search extends PureComponent {
     render() {
         return (
-            <h1>Search</h1>
-        )
-    }
+            <div>
+                <SearchHead />
+            </div>
+        );
+    };
+
 }
 
 export default Search;

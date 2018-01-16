@@ -2,7 +2,7 @@ module.exports = [
     {
         name: '景点',
         className: 'jingdian',
-        link: '/search/'
+        link: '/search/jingdian'
     },
     {
         name: 'KTV',

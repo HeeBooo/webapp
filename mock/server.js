@@ -4,6 +4,8 @@ const koaBody = require('koa-body')();
 
 const app = new Koa();
 
+// 日志
+
 // 首页 —— 轮播图数据
 const homeCateGory = require('./home/homeCategory');
 
@@ -29,7 +31,7 @@ router.get('/api/homelist/:city/:page', (ctx, next) => {
 
     console.log(`当前城市：${paramsCity}`);
     console.log(`当前页数：${paramsPage}`);
-    
+
     ctx.body = homeListData;
 });
 

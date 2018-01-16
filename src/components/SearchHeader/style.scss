@@ -2,24 +2,22 @@
 @import '../../static/scss/common.scss';
 @import '../../static/scss/font.css';
 
-.home-header {
+.search-head {
     display: flex;
     padding: 10px;
     background-color: rgb(233, 32, 61);
 }
 
-.home-header-left {
+.search-left {
     width: 60px;
     margin: 5px 0;
     text-align: left;
     font-size: 16px;
     color: #fff;
-    span {
-        margin-right: 3px; 
-    }
+    transform: rotate(180deg);
 }
 
-.home-header-middle {
+.search-middle {
     flex: 1;
     .search-container {
         padding: 5px;
@@ -29,17 +27,5 @@
         i {
             color: #ccc;
         }
-        
-    }
-}
-
-.home-header-right {
-    width: 30px;
-    margin: 5px 0;
-    text-align: right;
-    font-size: 16px;
-    color: #fff;
-    span {
-        margin-left: 3px; 
     }
 }
