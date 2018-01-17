@@ -1,31 +1,27 @@
-
 @import '../../static/scss/common.scss';
 @import '../../static/scss/font.css';
-
 .search-head {
     display: flex;
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
     background-color: rgb(233, 32, 61);
 }
 
 .search-left {
-    width: 60px;
+    width: 16px;
     margin: 5px 0;
     text-align: left;
     font-size: 16px;
     color: #fff;
-    transform: rotate(180deg);
 }
 
-.search-middle {
+.input-container {
     flex: 1;
-    .search-container {
-        padding: 5px;
-        border-radius: 15px;
-        background-color: #fff;
-        overflow: hidden;
-        i {
-            color: #ccc;
-        }
+    margin-left: 30px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+    i {
+        color: #ccc;
     }
 }
