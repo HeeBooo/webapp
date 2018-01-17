@@ -88,7 +88,6 @@ class List extends PureComponent {
         });
         
     };
-
 }
 
 export default List;

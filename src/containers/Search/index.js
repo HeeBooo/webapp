@@ -1,6 +1,8 @@
 import React, { PureComponent  } from 'react';
 
 import SearchHead from '~components/SearchHeader';
+import SearchList from './subpage/List';
+
 
 class Search extends PureComponent {
     render() {
@@ -11,14 +13,13 @@ class Search extends PureComponent {
                     keyword={params.keyword}
                     history={this.props.history}
                 />
+                <SearchList 
+                    keyword={params.keyword}
+                    category={params.category} 
+                />
             </div>
         );
     };
-
-    componentDidMount() {
-        console.log(this.props)
-    }
-
 }
 
 export default Search;
