@@ -43,11 +43,11 @@ router.get('/api/hotCityList', ctx => {
 const searchListData = require('./search/list');
 router.get('/api/search/:page/:city/:category/:keyword', (ctx, next) => {
     // 参数
-    const params = this.params
-    const paramsPage = params.page
-    const paramsCity = params.city
-    const paramsCategory = params.category
-    const paramsKeyword = params.keyword
+    const params = ctx.params;
+    const paramsPage = params.page;
+    const paramsCity = params.city;
+    const paramsCategory = params.category;
+    const paramsKeyword = params.keyword;
 
     console.log('当前页数：' + paramsPage)
     console.log('当前城市：' + paramsCity)
@@ -62,10 +62,10 @@ router.get('/api/search/:page/:city/:category', (ctx, next) => {
     console.log('搜索结果页 - 搜索结果')
 
     // 参数
-    const params = this.params
-    const paramsPage = params.page
-    const paramsCity = params.city
-    const paramsCategory = params.category
+    const params = ctx.params;
+    const paramsPage = params.page;
+    const paramsCity = params.city;
+    const paramsCategory = params.category;
 
     console.log('当前页数：' + paramsPage)
     console.log('当前城市：' + paramsCity)
@@ -73,6 +73,18 @@ router.get('/api/search/:page/:city/:category', (ctx, next) => {
 
     ctx.body = searchListData;
 })
+
+// 详情 - 商户详情
+const detailInfoData = require('./detail/info');
+router.get('/api/detail/info/:id', (ctx, next) => {
+    ctx.body = detailInfoData;
+});
+
+// 详情 - 商户评论
+const detailCommentData = require('./detail/comment');
+router.get('/api/detail/comment/:page/:id', (ctx, next) => {
+    ctx.body = detailCommentData;
+});
 
 // router.post('/api/post', koaBody, (ctx, next) => {
 //     console.log(ctx.request.body);

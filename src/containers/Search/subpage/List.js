@@ -38,6 +38,9 @@ class SearchList extends PureComponent {
         );
     };
 
+    // 页面初次渲染，会走componentDidMount
+    // 页面再次渲染，就不会走componentDidMount，而只走componentDidUpdate
+    
     // 页面初次
     componentDidMount() {
         // 获取首页数据
@@ -65,7 +68,7 @@ class SearchList extends PureComponent {
         const cityName = this.props.userinfo.cityName;
         const { keyword, category } = this.props;
         const result = getSearchData(0, cityName, category, keyword);
-        console.log(result)
+
         this.resultHandle(result);
     };
 
@@ -95,7 +98,7 @@ class SearchList extends PureComponent {
         const cityName = this.props.userinfo.cityName;
         const page = this.state.page;
         const { keyword, category } = this.props;
-        const result = getSearchData(0, cityName, category, keyword);
+        const result = getSearchData(page, cityName, category, keyword);
 
         this.resultHandle(result);
         

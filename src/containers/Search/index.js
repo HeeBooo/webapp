@@ -3,7 +3,6 @@ import React, { PureComponent  } from 'react';
 import SearchHead from '~components/SearchHeader';
 import SearchList from './subpage/List';
 
-
 class Search extends PureComponent {
     render() {
         const params = this.props.match.params;
