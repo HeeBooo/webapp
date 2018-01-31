@@ -214,9 +214,15 @@ module.exports = {
               },
               {
                 loader: require.resolve('css-loader'),
+                options: {
+                  sourceMap: true,
+                },
               },
               {
                 loader: require.resolve('sass-loader'),
+                options: {
+                  sourceMap: true,
+                },
               },
             ]
           },
