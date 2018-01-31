@@ -19,7 +19,6 @@ class List extends PureComponent {
     };
 
     render() {
-        ;
         return (
             <div>
                 <h2 className="home-list-title">猜你喜欢</h2>
@@ -55,8 +54,7 @@ class List extends PureComponent {
         result.then(res => {
             return res.json();
         }).then(json => {
-            const hasMore = json.hasMore;
-            const data = json.data;
+            const { hasMore, data } = json;
 
             // 存储数据
             this.setState({
@@ -86,7 +84,6 @@ class List extends PureComponent {
                 isLoadingMore: false
             });
         });
-        
     };
 }
 
