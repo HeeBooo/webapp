@@ -20,9 +20,9 @@ class Homeheader extends PureComponent {
                         />
                     </div>
                 </div>
-                <div className="home-header-right">
+                <Link className="home-header-right" to="/Login">
                     <i className="icon-user"></i>
-                </div>
+                </Link>
             </div>
         );
     };

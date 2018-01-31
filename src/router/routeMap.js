@@ -6,6 +6,7 @@ import User from '~containers/User';
 import Search from '~containers/Search';
 import Detail from '~containers/Detail';
 import NotFound from '~containers/404';
+import Login from '~containers/Login';
 
 class RouteMap extends Component {
     render() {
@@ -17,6 +18,7 @@ class RouteMap extends Component {
                     <Route path='/user' component={User} />
                     <Route path='/search/:category/:keyword?' component={Search} />
                     <Route path='/detail/:id' component={Detail} />
+                    <Route path='/Login/:router?' component={Login} />
                     <Route path='*' component={NotFound} />
                 </Switch>
             </Router>

@@ -7,7 +7,7 @@ import './style.scss';
 // dangerouslySetInnerHTML防止XSS攻击
 const DetailInfo = props => {
     const data = props.data;
-    console.log(data)
+    
     return (
         <div className="detail-info-container">
             <div className="info-container">

@@ -1,0 +1,57 @@
+.login-container {
+    width: 300px;
+    margin: 160px auto 0 auto;
+    .input1-container {
+        padding: 5px 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        background-color: #fff;
+        overflow: hidden; 
+        input {
+            display: block;
+            font-size: 16px;
+            border: 0;
+        }
+        i {
+            float: left;
+            width: 16px;
+            margin-top: 3px;
+            color: rgb(233, 32, 61);
+        }
+        &.phone-container {
+            input {
+                margin-left: 20px;
+            }
+        }
+        &.password-container {
+            margin-top: 10px;
+            input {
+                margin-left: 20px !important;
+                margin-right: 80px !important;
+            }
+            button {
+                float: right;
+                width: 80px;
+                height: 100%;
+                font-size: 16px;
+                color: rgb(233, 32, 61);
+                border: 0;
+                background-color: #fff;
+                text-align: center;
+            }
+        }
+    }
+    
+    .btn-login {
+        width: 100%;
+        margin-top: 10px;
+        padding: 5px 0;
+        text-align: center;
+        background-color: rgb(233, 32, 61);
+        color: #fff;
+        // border: 1px solid rbg(233, 32, 61);
+        border: 0;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+}
