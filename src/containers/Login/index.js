@@ -66,9 +66,10 @@ class Login extends PureComponent {
         // 跳转链接
         const params = this.props.match.params;
         const router = params.router;
-
+        console.log(router)
         if (router) {
             // 如果router存在，就跳回登录前的界面，router就是登录前的界面
+            console.log(router)
             this.props.history.push(router);
         } else {
             // 不存在的话就到用户中心页

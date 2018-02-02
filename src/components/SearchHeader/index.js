@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
-// import { Link } from 'react-router-dom';
-
 import SearchInput from '~components/SearchInput';
 import './style.scss';
 
-class SearchHead extends PureComponent {
+class SearchHeader extends PureComponent {
     render() {
         return (
             <div className="search-head">
@@ -29,8 +27,8 @@ class SearchHead extends PureComponent {
 
     // 跳转界面
     enterHandle = (value) => {
-        this.props.history.push(`/search/all/${encodeURIComponent(value)}`);
+        this.props.toSearchPage(value);
     };
 }
 
-export default SearchHead;
+export default SearchHeader;

@@ -1,6 +1,6 @@
 import React, { PureComponent  } from 'react';
 
-import SearchHead from '~components/SearchHeader';
+import SearchHeader from '~components/SearchHeader';
 import SearchList from './subpage/List';
 
 class Search extends PureComponent {
@@ -8,9 +8,9 @@ class Search extends PureComponent {
         const params = this.props.match.params;
         return (
             <div>
-                <SearchHead 
+                <SearchHeader 
                     keyword={params.keyword}
-                    history={this.props.history}
+                    toSearchPage={this.toSearchPage}
                 />
                 <SearchList 
                     keyword={params.keyword}
@@ -18,6 +18,11 @@ class Search extends PureComponent {
                 />
             </div>
         );
+    };
+
+    // 界面跳转
+    toSearchPage = value => {
+        this.props.history.push(`/search/all/${encodeURIComponent(value)}`);
     };
 }
 

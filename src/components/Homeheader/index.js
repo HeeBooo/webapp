@@ -27,9 +27,9 @@ class Homeheader extends PureComponent {
         );
     };
 
+    // 界面跳转
     enterHandle = (value) => {
-        // 跳转界面
-        this.props.history.push(`/search/all/${encodeURIComponent(value)}`);
+        this.props.toSearchPage(value);
     };
 };
 

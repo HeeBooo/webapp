@@ -10,12 +10,17 @@ class Home extends PureComponent {
     render() {
         return (
             <div>
-                <Homeheader cityName={this.props.userinfo.cityName} history={this.props.history} />
+                <Homeheader cityName={this.props.userinfo.cityName} toSearchPage={this.toSearchPage}/>
                 <Category />
                 <Ad />
                 <List cityName={this.props.userinfo.cityName} />
             </div>
         )
+    };
+
+    // 界面跳转
+    toSearchPage = value => {
+        this.props.history.push(`/search/all/${encodeURIComponent(value)}`);
     };
 };
 

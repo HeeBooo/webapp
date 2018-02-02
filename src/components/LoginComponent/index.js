@@ -23,8 +23,8 @@ class LoginComponent extends PureComponent {
                 </div>
                 <div className="input1-container password-container">
                     <i className="icon-key"></i>
-                    <button>发送验证码</button>
                     <input type="text" placeholder="请输入验证码" />
+                    <button>发送验证码</button>
                 </div>
                 <button className="btn-login" onClick={this.clickHandle}>登录</button>
             </div>
@@ -38,9 +38,9 @@ class LoginComponent extends PureComponent {
     }
 
     clickHandle = () => {
-        const username = this.state.phone;
+        const username = this.state.username;
         const loginHandle = this.props.loginHandle;
-
+        
         loginHandle(username);
     }
 };
