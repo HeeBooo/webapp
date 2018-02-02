@@ -27,7 +27,6 @@ class Detail extends PureComponent {
     // 跳转到用户主页
     toUser = () => {
         this.props.history.push('/user');
-        // this.props.history.push(`/search/all/${encodeURIComponent(value)}`);
     };
 
     // 检查登录状态,不管是收藏还是购买，都需要登录后才能进行

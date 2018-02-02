@@ -35,8 +35,9 @@ class Buy extends PureComponent {
         if (!loginFlag) {
             return;
         };
+        // 此过程为模拟购买，因此可省去复杂的购买过程
 
-        // 购买流程
+        // 跳转到用户界面
         this.props.toUser();
     };
 };
