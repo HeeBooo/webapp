@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-
 import { getOrderListData } from '~fetch/user/orderList';
+import OrderListComponent from '~components/OrderList';
+import './style.scss';
 
 class OrderList extends PureComponent {
     constructor(props) {
@@ -12,8 +13,13 @@ class OrderList extends PureComponent {
 
     render() {
         return (
-            <div>
-                13
+            <div className="order-list-container">
+                <h2>您的订单</h2>
+                {
+                    this.state.data.length
+                    ? <OrderListComponent data={this.state.data} />
+                    : <div>暂无订单</div>
+                }
             </div>
         )
     };
@@ -21,6 +27,13 @@ class OrderList extends PureComponent {
     componentDidMount() {
         const username = this.props.username;
 
+        if (username) {
+            this.loadOrderList(username);
+        }
+        
+    };
+
+    loadOrderList = username => {
         const result = getOrderListData(username);
 
         result.then(res => {
@@ -36,7 +49,6 @@ class OrderList extends PureComponent {
             console.log(error)
         })
     };
-
     
 };
 
