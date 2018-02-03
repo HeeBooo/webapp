@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react';
 import BuyAndStore from '~components/BuyAndStore';
-// import { bindActionCreators } from 'redux';
-
-// import { getInforData } from '~fetch/detail/detail';
 
 class Buy extends PureComponent {
     constructor(props) {

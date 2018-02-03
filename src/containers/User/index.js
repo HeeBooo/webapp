@@ -2,13 +2,17 @@ import React, { PureComponent  } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '~components/Header';
+import UserInfo from '~components/UserInfo';
+import OrderList from './subpage/OrderList';
 
 class User extends PureComponent {
     render() {
+        const userinfo = this.props.userinfo;
         return (
             <div>
-                <Header title="用户主页" backRouter="/home" />
-                <Header userinfo={this.props.userinfo} />
+                <Header title="用户主页" toHome={this.toHome} />
+                <UserInfo userinfo={userinfo} />
+                <OrderList username={userinfo.username} />
             </div>
         )
     };
@@ -18,6 +22,11 @@ class User extends PureComponent {
         if (!this.props.userinfo.username) {
             this.props.history.push('/Login');
         }
+    };
+
+    // 前往home页面
+    toHome = () => {
+        this.props.history.push('/');
     };
 };
 

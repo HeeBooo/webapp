@@ -91,6 +91,12 @@ router.get('/api/detail/comment/:page/:id', (ctx, next) => {
 //     ctx.body = JSON.stringify(ctx.request.body)
 // });
 
+// 用户主页-订单详情 
+const orderListData = require('./orderList/orderList');
+router.get('/api/orderList/:username', (ctx, next) => {
+    ctx.body = orderListData;
+});
+
 app.use(router.routes())
     .use(router.allowedMethods());
 
