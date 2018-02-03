@@ -15,7 +15,13 @@ const Header = props => {
 
 const clickHandle = () => {
     // 返回上一页
-    window.history.back();
+    const backRouter = this.props.backRouter;
+    
+    if (backRouter === undefined) {
+        this.props.toBack(backRouter);
+    } else {
+        window.history.back(backRouter);
+    }
 };
 
 export default Header;

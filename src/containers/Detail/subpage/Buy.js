@@ -1,4 +1,4 @@
-import React, { PureComponent  } from 'react';
+import React, { PureComponent } from 'react';
 import BuyAndStore from '~components/BuyAndStore';
 // import { bindActionCreators } from 'redux';
 
@@ -7,7 +7,7 @@ import BuyAndStore from '~components/BuyAndStore';
 class Buy extends PureComponent {
     constructor(props) {
         super(props);
-        this.state= {
+        this.state = {
             isStore: false  // 是否收藏 true已收藏
         }
     };
@@ -15,8 +15,8 @@ class Buy extends PureComponent {
     render() {
         return (
             <div>
-                <BuyAndStore 
-                    isStore={this.state.isStore} 
+                <BuyAndStore
+                    isStore={this.state.isStore}
                     storeHandle={this.storeHandle}
                     buyHandle={this.buyHandle}
                 />
@@ -46,11 +46,32 @@ class Buy extends PureComponent {
 
     // 收藏
     storeHandle = () => {
-        
+        // 验证登录
+        const loginFlag = this.props.loginCheck();
+        if (!loginFlag) {
+            return;
+        };
+
+        const { id, storeActions } = this.props;
+
+        if (this.state.isStore) {
+            // 当前商户已经被收藏。点击时应取消收藏
+            storeActions.rm({ id: id });
+        } else {
+            // 收藏
+            storeActions.add({ id: id });
+        }
+
+        // 修改状态
+        this.setState({
+            isStore: !this.state.isStore
+        })
+
     };
 
     // 购买
     buyHandle = () => {
+        // 验证登录
         const loginFlag = this.props.loginCheck();
         if (!loginFlag) {
             return;

@@ -3,16 +3,13 @@ import React, { PureComponent } from 'react';
 import './style.scss';
 
 class BuyAndStore extends PureComponent {
-    // constructor(props) {
-    //     super(props);
-    // };
     render() {
         return (
             <div className="store-buy-container">
                 <div onClick={this.storeClickHandle}>
                     {
                         this.props.isStore
-                        ? <span>已收藏</span>
+                        ? <span className="selected">已收藏</span>
                         : <span>收藏</span>
                     }
                 </div>
@@ -22,8 +19,6 @@ class BuyAndStore extends PureComponent {
             </div>
         );
     };
-
-
 
     storeClickHandle = () => {
         this.props.storeHandle();

@@ -13,7 +13,6 @@ export default function store(state = initialState, action) {
             const newState = state.filter(item => {
                 return item.id !== action.data.id;
             });
-            console.log(newState)
             return newState;
         default:
             return state;

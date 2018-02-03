@@ -64,13 +64,12 @@ class Login extends PureComponent {
         actions.update(userinfo);
 
         // 跳转链接
-        const params = this.props.match.params;
-        const router = params.router;
-        console.log(router)
-        if (router) {
-            // 如果router存在，就跳回登录前的界面，router就是登录前的界面
-            console.log(router)
-            this.props.history.push(router);
+        let url = this.props.location.pathname;
+        // 截取路由地址/Login/xxx/xxxx,去掉/Login
+        url = url.slice(6);
+        if (url) {
+            // 如果url存在，就跳回登录前的界面，router就是登录前的界面
+            this.props.history.push(url);
         } else {
             // 不存在的话就到用户中心页
             this.goUserPage();

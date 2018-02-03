@@ -13,7 +13,6 @@ class Detail extends PureComponent {
     render() {
         // 获取商户id
         const id = this.props.match.params.id;
-        console.log(this.props)
         return (
             <div>
                 <Header title="商户详情" />
@@ -38,13 +37,13 @@ class Detail extends PureComponent {
 
     // 检查登录状态,不管是收藏还是购买，都需要登录后才能进行
     loginCheck = () => {
-        const id = this.props.match.params.id;
         const userinfo = this.props.userinfo;
 
         if (!userinfo.username) {
             // 不存在则跳转到登录界面，要传入目标router,以便登录完了之后可以自己跳转回来
+            const url = this.props.match.url;
 
-            this.props.history.push('/Login/' + encodeURIComponent('/detail/' + id));
+            this.props.history.push(`/Login${url}`);
             return false;
         }
         return true;
