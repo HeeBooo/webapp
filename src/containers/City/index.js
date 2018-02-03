@@ -1,7 +1,7 @@
 import React, { PureComponent  } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as userInfoActionsFormOtherFile from '~actions/userinfo';
+import * as userInfoActionsFromOtherFile from '~actions/userinfo';
 
 import LocalStore from '~util/localStore';
 import { CITYNAME } from '~config/localStoreKey';
@@ -29,9 +29,10 @@ class City extends PureComponent {
 
         // 1.修改redux
         const userinfo = this.props.userinfo;
-
+        const actions = this.props.userInfoActions;
+        
         userinfo.cityName = newCity;
-        this.props.userInfoActions.update(userinfo);
+        actions.update(userinfo);
 
         // 2.修改localStorage
         LocalStore.setItem(CITYNAME, newCity);
@@ -51,7 +52,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        userInfoActions: bindActionCreators(userInfoActionsFormOtherFile, dispatch)
+        userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
     };
 };
 

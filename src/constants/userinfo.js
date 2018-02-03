@@ -1,1 +1,1 @@
-export const USERINFO_UPDATE = 'userinfo_update';
+export const USERINFO_UPDATE = 'USERINFO_UPDATE';

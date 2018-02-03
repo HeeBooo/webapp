@@ -8,7 +8,7 @@ class Buy extends PureComponent {
     constructor(props) {
         super(props);
         this.state= {
-            isStore: true  // 是否收藏 true已收藏
+            isStore: false  // 是否收藏 true已收藏
         }
     };
 
@@ -24,6 +24,26 @@ class Buy extends PureComponent {
         )
     };
 
+    // 进入界面后就应该判断是否收藏了
+    componentDidMount() {
+        this.checkStoreState();
+    };
+
+    // 检验当前商户是否已经被收藏
+    checkStoreState = () => {
+        const { id, store } = this.props;
+
+        // some主要有一个满足即可
+        const isStore = store.some(item => {
+            // 如果store中有这个id，说明已经被收藏了
+            return item.id === id;
+        });
+
+        this.setState({
+            isStore
+        });
+    };
+
     // 收藏
     storeHandle = () => {
         
@@ -37,7 +57,7 @@ class Buy extends PureComponent {
         };
         // 此过程为模拟购买，因此可省去复杂的购买过程
 
-        // 跳转到用户界面
+        // 跳转到用户主页
         this.props.toUser();
     };
 };

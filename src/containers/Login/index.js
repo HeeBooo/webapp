@@ -1,7 +1,7 @@
 import React, { PureComponent  } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as userInfoActionsFormOtherFile from '~actions/userinfo';
+import * as userInfoActionsFromOtherFile from '~actions/userinfo';
 
 import Header from '~components/Header';
 import LoginComponent from '~components/LoginComponent'
@@ -56,12 +56,12 @@ class Login extends PureComponent {
     // 登录成功之后的业务处理
     loginHandle = username => {
         // 保存用户名
-        const acitons = this.props.userInfoActions;
+        const actions = this.props.userInfoActions;
         // 获取redux中的userinfo
         let userinfo = this.props.userinfo;
 
         userinfo.username = username;
-        acitons.update(userinfo);
+        actions.update(userinfo);
 
         // 跳转链接
         const params = this.props.match.params;
@@ -88,7 +88,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        userInfoActions: bindActionCreators(userInfoActionsFormOtherFile, dispatch)
+        userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
     };
 };
 

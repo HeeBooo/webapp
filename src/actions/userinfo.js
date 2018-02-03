@@ -5,4 +5,4 @@ export function update(data) {
         type: actionTypes.USERINFO_UPDATE,
         data
     }
-}
+};
