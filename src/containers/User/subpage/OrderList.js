@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import { getOrderListData } from '~fetch/user/orderList';
 import OrderListComponent from '~components/OrderList';
+import { getOrderListData, postComment } from '~fetch/user/orderList';
+
 import './style.scss';
 
 class OrderList extends PureComponent {
@@ -8,7 +9,7 @@ class OrderList extends PureComponent {
         super(props);
         this.state = {
             data: []
-        }
+        };
     };
 
     render() {
@@ -17,7 +18,7 @@ class OrderList extends PureComponent {
                 <h2>您的订单</h2>
                 {
                     this.state.data.length
-                    ? <OrderListComponent data={this.state.data} />
+                    ? <OrderListComponent data={this.state.data} submitComment={this.submitComment} />
                     : <div>暂无订单</div>
                 }
             </div>
@@ -33,6 +34,7 @@ class OrderList extends PureComponent {
         
     };
 
+    // 获取列表数据
     loadOrderList = username => {
         const result = getOrderListData(username);
 
@@ -45,6 +47,24 @@ class OrderList extends PureComponent {
             this.setState({
                 data: data
             });
+        }).catch(error => {
+            console.log(error)
+        })
+    };
+
+    // 提交评价
+    submitComment = (id, comment, callback) => {
+        // 上传值
+        const result = postComment(id, comment);
+
+        result.then(res => {
+            if(res.status === 200) {
+                return res.json();
+            }
+        }).then(json => {
+            if (json.errno === 0) {
+                callback()
+            }
         }).catch(error => {
             console.log(error)
         })

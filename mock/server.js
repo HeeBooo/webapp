@@ -86,15 +86,20 @@ router.get('/api/detail/comment/:page/:id', (ctx, next) => {
     ctx.body = detailCommentData;
 });
 
-// router.post('/api/post', koaBody, (ctx, next) => {
-//     console.log(ctx.request.body);
-//     ctx.body = JSON.stringify(ctx.request.body)
-// });
-
 // 用户主页-订单详情 
 const orderListData = require('./orderList/orderList');
 router.get('/api/orderList/:username', (ctx, next) => {
     ctx.body = orderListData;
+});
+
+// 用户主页-提交评价
+router.post('/api/submitComment', (ctx, next) => {
+    console.log('提交评论');
+    // 获取参数
+    ctx.body = {
+        errno: 0,
+        msg: 'ok'
+    }
 });
 
 app.use(router.routes())

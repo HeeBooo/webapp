@@ -5,12 +5,11 @@ import Item from './Item';
 const OrderListComponent = props => {
     const data = props.data;
     return (
-        <div className="">
+        <div>
             {
                 data.map((item, index) => {
-                    console.log(item)
                     return (
-                        <Item key={index} data={item} />
+                        <Item key={index} data={item} submitComment={props.submitComment} />
                     );
                 })
             }
