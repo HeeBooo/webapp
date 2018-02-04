@@ -20,7 +20,6 @@ const Item = props => {
                 <button>评价</button>
             </div>
         </div>
-
     );
 };
 
