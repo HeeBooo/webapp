@@ -69,7 +69,6 @@ class OrderList extends PureComponent {
             console.log(error)
         })
     };
-    
 };
 
 export default OrderList;

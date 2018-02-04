@@ -94,6 +94,17 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      '~actions': path.resolve(__dirname, '../src/actions'),
+      '~components': path.resolve(__dirname, '../src/components'),
+      '~config': path.resolve(__dirname, '../src/config'),
+      '~constants': path.resolve(__dirname, '../src/constants'),
+      '~containers': path.resolve(__dirname, '../src/containers'),
+      '~fetch': path.resolve(__dirname, '../src/fetch'),
+      '~reducers': path.resolve(__dirname, '../src/reducers'),
+      '~router': path.resolve(__dirname, '../src/router'),
+      '~static': path.resolve(__dirname, '../src/static'),
+      '~store': path.resolve(__dirname, '../src/store'),
+      '~util': path.resolve(__dirname, '../src/util'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -211,6 +222,36 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: [/\.woof?2$/, /\.svg$/, /\.ttf$/, /\.eot$/],
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 5000,
+            },
+          },
+          {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+              fallback: {
+                loader: require.resolve('style-loader'),
+                options: {
+                  hmr: false,
+                },
+              },
+              //resolve-url-loader may be chained before sass-loader if necessary
+              use: [
+                {
+                  loader: require.resolve('css-loader'),
+                  options: {
+                    importLoaders: 1,
+                    minimize: true,
+                    sourceMap: shouldUseSourceMap,
+                  },
+                },
+                'sass-loader'
+              ]
+            })
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
